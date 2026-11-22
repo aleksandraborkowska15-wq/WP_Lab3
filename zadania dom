@@ -32,19 +32,20 @@ int main(void) {
 }
 
 zad.3 zamiana miejscami elementów tablicy 1 i ostatni (pamietać, że numerowanie w C zaczyna się od 0)
+temp -> temporary
 int main(void) {
     
     int tab[]= {10,20,30,40};
-    int x;
+    int temp;
 
     printf("Oryginalna tablica: \n");
     for(int i=0; i<4; i++){
         printf("tab[%d]=%d\n", i, tab[i]);
     }
     printf("\n");
-    x=tab[0];
+    temp=tab[0];
     tab[0]=tab[3];
-    tab[3]=x;
+    tab[3]=temp;
 
     printf("Tablica po zmianie: \n");
     for(int i=0; i<4; i++){
