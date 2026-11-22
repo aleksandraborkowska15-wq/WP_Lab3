@@ -54,7 +54,7 @@ int main(void) {
     return 0;
 }
 
-zad.4 sortowanie bąbelkowe
+zad.4 sortowanie bąbelkowe od najmniejszego
 int main(void){
     int tab[]={9,2,7,4,6,5,3,0};
     int temp;
