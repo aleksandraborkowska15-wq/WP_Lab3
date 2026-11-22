@@ -278,3 +278,21 @@ int main(void){
     fclose(plik);
     return 0;
 }
+
+zad.12 wczytaj plik, nadpisz jego dane liczbami od 1 do 20 oraz ich połówkami
+int main(void){
+    FILE *plik=fopen("dane.txt", "w");
+    if (!plik){
+        printf("Blad\n");
+        return 1;
+    }
+    
+    for(float i=1; i<=20; i++){ //pamietac ze jezeli moga wystapic ulamki to zamiast int dac float i liczbe miejsc po przecinku
+        fprintf(plik, "Liczba %.0f jej polowa %.1f\n", i, i/2);
+    }
+
+
+    fclose(plik);
+    printf("Dane zapisane do pliku dane.txt\n");
+    return 0;
+}
