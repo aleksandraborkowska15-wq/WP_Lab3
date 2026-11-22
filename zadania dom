@@ -212,3 +212,22 @@ int main(void){
     printf("Instrukcja if zostala wykonana %d razy\n", count_if(x));
     return 0;
 }
+
+zad.9 otwieranie i zakykanie pliku
+int main(void){
+    FILE *plik;
+    plik= fopen("dane.txt", "r");
+
+    if (!plik){
+        printf("Nie mozna otworzyc pliku!\n");
+        return 1;
+    }
+    printf("Plik otwarto pomyslnie!\n");
+    fclose(plik);
+    printf("Plik zamkniety.\n");
+
+
+    return 0;
+}
+
+zad.10 
