@@ -230,4 +230,29 @@ int main(void){
     return 0;
 }
 
-zad.10 
+zad.10 wczytywanie zawartości pliku
+int main(void){
+    FILE *plik;
+    plik= fopen("dane.txt", "r");
+
+    if (!plik){
+        printf("Nie mozna otworzyc pliku!\n");
+        return 1;
+    }
+    int liczba;
+    char a;
+
+    printf("zawartosc pliku: \n");
+    //while(fscanf(plik,"%d ", &liczba)==1){
+        //printf("%d ", liczba);
+    //}
+    while(fscanf(plik, "%c ", &a)==1){
+        printf("%c", a);
+    }
+    printf("\n");
+
+    fclose(plik);
+    return 0;
+}
+
+zad.11
