@@ -296,3 +296,24 @@ int main(void){
     printf("Dane zapisane do pliku dane.txt\n");
     return 0;
 }
+
+zad.13 kopiowanie tekstu z pliku i zapisywanie go w pustym pliku
+int main(void){
+    FILE *wejscia=fopen("dane.txt", "r");
+    FILE *wyjscia=fopen("kopia.txt", "w");
+
+    if(!wejscia || !wyjscia){
+        printf("blad wczytania pliku|,");
+        return 1;
+    }
+    int znak;
+    while((znak=fgetc(wejscia)) !=EOF){
+        fputc(znak, wyjscia);
+    }
+
+    fclose(wejscia);
+    fclose(wyjscia);
+    printf("Plik zostal skopiowany\n");
+
+    return 0;
+}
