@@ -341,5 +341,29 @@ int main(void){
     return 0;
 }
 
-zad.15
+zad.15 skopiowanie z pliku tylko pewnych danych i zapisanie ich w innym pliku
+int main(void){
+    FILE *wejscia=fopen("dane.txt", "r");
+    FILE *wyjscia=fopen("wieksze10.txt", "w");
 
+    if(!wejscia || !wyjscia){
+        printf("blad wczytania pliku \n");
+        return 1;
+    }
+    int liczba, suma=0,count=0;
+    while(fscanf(wejscia, "%d", &liczba)==1){
+        if(liczba>10){
+            suma=suma+liczba;
+            count++;
+           fprintf(wyjscia, "%d ", liczba);
+        }
+    }
+    
+
+    fclose(wejscia);
+    fclose(wyjscia);
+    printf("Liczb wiekszych od 10 jest: %d, suma tych liczb: %d\n", count, suma);
+    printf("Plik zostal skopiowany\n");
+
+    return 0;
+}
