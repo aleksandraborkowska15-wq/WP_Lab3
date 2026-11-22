@@ -317,3 +317,29 @@ int main(void){
 
     return 0;
 }
+
+zad.14 kopiowanie tekstu z pliku i zapisywanie go w pustym pliku ale wszystkie małe litery zmieniamy na duże
+#include <ctype.h>
+int main(void){
+    FILE *wejscia=fopen("dane.txt", "r");
+    FILE *wyjscia=fopen("kopia.txt", "w");
+
+    if(!wejscia || !wyjscia){
+        printf("blad wczytania pliku|,");
+        return 1;
+    }
+    int znak;
+    while((znak=fgetc(wejscia)) !=EOF){
+        int zmiana_liter_na_duze= toupper(znak);
+        fputc(zmiana_liter_na_duze, wyjscia);
+    }
+
+    fclose(wejscia);
+    fclose(wyjscia);
+    printf("Plik zostal skopiowany\n");
+
+    return 0;
+}
+
+zad.15
+
