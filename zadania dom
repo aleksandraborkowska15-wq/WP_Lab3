@@ -255,4 +255,26 @@ int main(void){
     return 0;
 }
 
-zad.11
+zad.11 wczytanie liczb z pliku, policzenie ich sumy oraz średniej artmetycznej
+int main(void){
+    FILE *plik=fopen("dane.txt", "r");
+    if (!plik){
+        printf("Blad\n");
+        return 1;
+    }
+    int suma=0;
+    int liczba;
+    printf("Zawartosc pliku: \n");
+    while(fscanf(plik, "%d", &liczba)==1){
+        printf("%d ", liczba);
+        suma=suma+liczba;
+    }
+    int s_artmetyczna = suma/2;
+    printf("\n");
+    printf("Suma liczb = %d\n", suma);
+    printf("Srednia artmetyczna %d\n",s_artmetyczna);
+
+
+    fclose(plik);
+    return 0;
+}
