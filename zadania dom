@@ -1,4 +1,4 @@
-zad.1
+zad.1 wypisanie tablicy 1 wymiarowej
 int main(void) {
     int n=5;
     int marks[n];
@@ -15,7 +15,7 @@ int main(void) {
     return 0;
 }
 
-zad.2
+zad.2 znalezienie najwiekszej wartości w tablicy 
 int main(void) {
     
     int marks[]= {1,2,3,3,4,5,2,5,6,7};
@@ -28,5 +28,27 @@ int main(void) {
         }
     }
     printf("Maksymalna wartosc to: %d\n", max);
+    return 0;
+}
+
+zad.3 zamiana miejscami elementów tablicy 1 i ostatni (pamietać, że numerowanie w C zaczyna się od 0)
+int main(void) {
+    
+    int tab[]= {10,20,30,40};
+    int x;
+
+    printf("Oryginalna tablica: \n");
+    for(int i=0; i<4; i++){
+        printf("tab[%d]=%d\n", i, tab[i]);
+    }
+    printf("\n");
+    x=tab[0];
+    tab[0]=tab[3];
+    tab[3]=x;
+
+    printf("Tablica po zmianie: \n");
+    for(int i=0; i<4; i++){
+        printf("tab[%d]=%d\n", i, tab[i]);
+    }
     return 0;
 }
