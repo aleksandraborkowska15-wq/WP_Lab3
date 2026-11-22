@@ -330,8 +330,8 @@ int main(void){
     }
     int znak;
     while((znak=fgetc(wejscia)) !=EOF){
-        int zmiana_liter_na_duze= toupper(znak);
-        fputc(zmiana_liter_na_duze, wyjscia);
+        int zmiana_liter_na_duze= toupper(znak); // znak = toupper(znak); //
+        fputc(zmiana_liter_na_duze, wyjscia); // fprintf(wyjscia, "%c", znak); //
     }
 
     fclose(wejscia);
@@ -359,7 +359,6 @@ int main(void){
         }
     }
     
-
     fclose(wejscia);
     fclose(wyjscia);
     printf("Liczb wiekszych od 10 jest: %d, suma tych liczb: %d\n", count, suma);
