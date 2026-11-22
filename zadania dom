@@ -95,3 +95,40 @@ int main(void){
     
     return 0;
 }
+
+zad.6 wypisanie liczb z przekątnej od prawey górny róg do lewy dolny róg
+#define M 5
+
+int main(void){
+    int macierz[M][M]={
+        {1,2,3,4,5},
+        {6,7,8,9,10},
+        {11,12,13,14,15},
+        {16,17,18,19,20},
+        {21,22,23,24,25}
+    };
+    
+    
+    for(int i=0; i<5; i++){
+        for(int j=0; j<5; j++){
+            printf("%d\t", macierz[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+    printf("Przekatna prawy gorny rog do lewy dolny: \n");
+    for(int m=0; m<M; m++){
+        for(int n=0; n<M; n++){
+            if(n+m==M-1){ //jezeli od lewy gorny rog to n==m
+            printf("%d\t", macierz[m][n]);
+            printf("\n");
+            }
+        } 
+    }
+
+    return 0;
+}
+
+
+
