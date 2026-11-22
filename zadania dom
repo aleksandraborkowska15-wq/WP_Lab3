@@ -53,3 +53,30 @@ int main(void) {
     }
     return 0;
 }
+
+zad.4 sortowanie bąbelkowe
+int main(void){
+    int tab[]={9,2,7,4,6,5,3,0};
+    int temp;
+
+    printf("Poczatkowa tablica: \n");
+    for(int i=0; i<8; i++){
+        printf("%d\n", tab[i]);
+    }
+    for(int i=0; i<7; i++){
+        for(int j=0; j<7-i; j++){
+            if(tab[j]>tab[j+1]){
+             temp=tab[j];
+             tab[j]=tab[j+1];
+             tab[j+1]=temp;
+            }
+        }
+    }
+    printf("\n");
+
+    printf("Posortowana tablica: \n");
+    for(int i=0; i<8; i++){
+        printf("%d\n", tab[i]);
+    }
+    return 0;
+}
