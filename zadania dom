@@ -170,3 +170,45 @@ int main(void){
     return 0;
 }
 
+zad.8 progowanie macierzy i liczenie ile raz się ono wykonało
+#define M 5
+#define N 4
+
+int count_if(int x){ //funkcja liczaca if
+    return x;
+}
+
+int main(void){
+    int x=0;
+    int macierz[M][N]={
+        {1,2,3,4},
+        {6,7,8,9},
+        {11,12,13,14},
+        {16,17,18,19},
+        {21,22,23,24}
+    };
+    printf("Macierz przed progowaniem: \n");
+    for(int m=0; m<M; m++){
+        for(int n=0; n<N; n++){
+            printf("%d\t", macierz[m][n]);
+        }
+        printf("\n");
+    }
+
+
+    int prog = 4;
+    printf("Macierz po progowaniu: \n");
+    for(int m=0; m<M; m++){
+        for(int n=0; n<N; n++){
+            if(macierz[m][n]>=prog){
+                printf("1\t");
+                x++;
+            }else{
+                printf("0\t");
+            }
+        }
+        printf("\n");
+    }
+    printf("Instrukcja if zostala wykonana %d razy\n", count_if(x));
+    return 0;
+}
