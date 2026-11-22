@@ -130,5 +130,43 @@ int main(void){
     return 0;
 }
 
+zad.7 transpozycja macierzy
+#define M 5
+#define N 4
 
+int main(void){
+    int macierz[M][N]={
+        {1,2,3,4},
+        {6,7,8,9},
+        {11,12,13,14},
+        {16,17,18,19},
+        {21,22,23,24}
+    };
+    printf("Macierz A: \n");
+    for(int m=0; m<M; m++){
+        for(int n=0; n<N; n++){
+            printf("%d\t", macierz[m][n]);
+        }
+        printf("\n");
+    }
+    
+    int macierz_trans[N][M];
+
+    for(int m=0; m<M; m++){
+        for(int n=0; n<N; n++){
+            macierz_trans[n][m]=macierz[m][n];
+        }
+    }
+
+    printf("Macierz transponowana A: \n");
+    for(int m=0; m<N; m++){
+        for(int n=0; n<M; n++){
+            printf("%d\t", macierz_trans[m][n]);
+        }
+        printf("\n");
+    }
+
+
+    return 0;
+}
 
