@@ -366,3 +366,117 @@ int main(void){
 
     return 0;
 }
+
+zad.duże
+#include <stdio.h>
+#define MAX 50
+
+int main(void) {
+    FILE *fp;
+    char nazwisko[50];
+    int indeks;
+
+    // -----------------------------
+    // Krok 1: Wczytanie i wyświetlenie studentów z nieparzystym indeksem
+    // -----------------------------
+    fp = fopen("studenci.txt", "r");
+    if (!fp) {
+        printf("Nie mozna otworzyc pliku studenci.txt\n");
+        return 1;
+    }
+
+    printf("Studenci z nieparzystym indeksem: \n");
+    while (fscanf(fp, "%s %d", nazwisko, &indeks) == 2) {
+        if (indeks%2==0) {
+            printf("%s %d\n", nazwisko, indeks);
+        } 
+    }
+    printf("\n");
+
+    
+
+    // -----------------------------
+    // Kolejne zadania do wykonania:
+    // -----------------------------
+    // 1. Wczytaj wszystkie indeksy studentów do tablicy 'indeksy[MAX]'.
+    rewind(fp);
+    int indeksy[MAX];
+    int liczba_student=0;
+    while(liczba_student<MAX && fscanf(fp,"%s %d",nazwisko, &indeksy[liczba_student])==2){
+        liczba_student++;
+    }
+    //printf("wczytane indeksy: \n");
+    //for (int i=0; i<MAX;i++) {
+        //printf("%d\n", indeksy[i]);
+    //}
+    // 2. Oblicz średnią wartości indeksów i wypisz indeksy większe od średniej.
+    int suma=0;
+    
+    for(int i=0; i<MAX; i++){
+        suma=suma+indeksy[i];
+    }
+    
+    int srednia=suma/liczba_student;
+    printf("Srednia wartosc indeksow: %d\n", srednia);
+    printf("Indeksy powyzej sredniej: \n");
+    for(int i=0; i<MAX; i++){
+        if(indeksy[i]>srednia){
+            printf("%d\n", indeksy[i]);
+        }
+    }
+    // 3. Wczytaj dane z pliku 'egzamin.txt'.
+    FILE*plik;
+    plik=fopen("egzamin.txt", "r");
+    if (!plik) {
+        printf("Nie mozna otworzyc pliku egzamin.txt\n");
+        return 1;
+    }
+    int procenty[MAX];
+    int indeksx[MAX];
+    int liczba_studentow=0;
+    while(liczba_studentow<MAX && fscanf(plik, "%d %d",&indeksx[liczba_studentow],&procenty[liczba_studentow])==2){
+        liczba_studentow++;
+    }
+    //printf("Dane z egzaminu:\n");
+    //for (int i = 0; i < liczba_studentow; i++) {
+        //printf("Indeks: %d, Procenty: %d\n", indeksx[i], procenty[i]);
+    //}
+        
+    // 4. Na podstawie punktów oblicz oceny (np. >90% = 5, >75% = 4, >50% = 3, reszta 2).
+    int oceny[MAX];
+    int count_2=0, count_3=0, count_4=0, count_5=0;
+    for(int i=0;i<liczba_studentow; i++){
+        if(procenty[i]>90){
+            oceny[i]=5;
+            count_5++;
+        } 
+        else if(procenty[i]>70 && procenty[i]<=90){
+            oceny[i]=4;
+            count_4++;
+        }
+        else if(procenty[i]>50 && procenty[i]<=75){
+            oceny[i]=3;
+            count_3++;
+        }
+        else if(procenty[i]>=0 && procenty[i]<=50){
+            oceny[i]=2;
+            count_2++;
+        } 
+    }
+    // 5. Zapisz wyniki do pliku 'wyniki.txt' w formacie: numer indeksu i ocena.
+    FILE*wyjscia=fopen("wyniki.txt", "w");
+    if(!wyjscia){
+        printf("blad wczytania pliku");
+        return 1;
+    }
+
+    fprintf(wyjscia, "\n");
+    fprintf(wyjscia, "Ocena 2: %d\n", count_2);
+    fprintf(wyjscia, "Ocena 3: %d\n", count_3);
+    fprintf(wyjscia, "Ocena 4: %d\n", count_4);
+    fprintf(wyjscia, "Ocena 5: %d\n", count_5);
+
+    fclose(plik);
+    fclose(fp);
+    return 0;
+}
