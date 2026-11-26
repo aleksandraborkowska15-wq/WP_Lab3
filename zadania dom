@@ -263,13 +263,15 @@ int main(void){
         return 1;
     }
     int suma=0;
+    int liczba_studentow=0;
     int liczba;
     printf("Zawartosc pliku: \n");
     while(fscanf(plik, "%d", &liczba)==1){
         printf("%d ", liczba);
         suma=suma+liczba;
+        liczba_studentow++;
     }
-    int s_artmetyczna = suma/2;
+    int s_artmetyczna = suma/liczba_studentow;
     printf("\n");
     printf("Suma liczb = %d\n", suma);
     printf("Srednia artmetyczna %d\n",s_artmetyczna);
